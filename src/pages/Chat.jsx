@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY || 'sk-mock-key';
+const OPENAI_API_KEY = "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";
 
 const SYSTEM_PROMPT = `You are MediSense AI, a compassionate and knowledgeable health triage assistant. Your role is to help users understand their symptoms and guide them on the urgency of seeking medical care.
 
