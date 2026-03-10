@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY || 'sk-mock-key';
 
 const SYSTEM_PROMPT = `You are MediSense AI, a compassionate and knowledgeable health triage assistant. Your role is to help users understand their symptoms and guide them on the urgency of seeking medical care.
 
@@ -76,14 +76,14 @@ export default function Chat() {
         })),
       ];
 
-      const res = await fetch('https://api.openai.com/v1/chat/completions', {
+      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${OPENAI_API_KEY}`,
         },
         body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
+          model: 'llama-3.3-70b-versatile',
           messages: apiMessages,
           temperature: 0.7,
           max_tokens: 600,
